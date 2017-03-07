@@ -1,0 +1,66 @@
+// Created Script to spin up 4 storage Accounts and naming convention is followed as per defined architecture.
+
+
+{
+"$schema": "https://schema.management.azure.com/schemas/2015-01-01/GhenchoStoragedeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+
+// Following Attributes defined for only 1 web storage account (considered parameters are: storage account 'name' and 'type')
+    "parameters": {
+        "storageAccountsName":{
+            "defaultValue": "gcplwebstorage",
+            "type": "string"
+        },
+        "storageAccountsType": {
+            "type": "string",
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_ZRS",
+                "Standard_GRS",
+                "Standard_RAGRS",
+                "Premium_LRS"
+                            ],
+            "defaultValue": "Standard_ZRS"
+
+
+        }
+         
+    },
+
+    // Variables at this instant are not required and not updated.
+    "variables": {},
+
+    // Defined Reources are for only to spin up 1 storage account
+
+    "resources": [
+        {
+            
+            "type": "Microsoft.storage/storageAccounts",
+            "apiVersion": "2016-01-01",
+            "kind": "storage",
+            "name": "[parameters('storageAccountsName')]",
+            "location": "[resourcegroup().location]",
+            "properties":{
+                "accountType": "[parameters('storageAccountsType')]",
+                //"encryption": {
+                    "keySource": "Microsoft.storage",
+                    "services": {
+                        "blob":{
+                            "enabled": true
+                        }
+                    }
+                
+                }
+        }
+
+
+        
+    ],
+
+
+    //Outputs are not considered anywhere.
+
+    "outputs" :{}
+
+
+}

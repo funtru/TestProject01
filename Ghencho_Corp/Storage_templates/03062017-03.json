@@ -1,0 +1,89 @@
+{
+   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/StorageAccountTemplate001.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": { 
+       "StorageAccountType_01": {
+           "type": "string",
+           "defaultValue": "Standard_ZRS"
+        },
+        "StorageAccountType_02": {
+            "type": "string",
+            "defaultValue": "Standard_LRS"
+        },
+        "StorageAccountType_03": {
+            "type": "string",
+            "defaultValue": "Standard_GRS"
+        },
+        "StorageAccountType_04":{
+            "type": "string",
+            "defaultValue": "Standard_GRS"
+        },
+        "StorageAccountName_01": {
+            "type": "string",
+            "defaultValue": "gcplwebstorage"
+        
+        },
+        "StorageAccountName_02":{
+            "type": "string",
+            "defaultValue": "gcplappstorage"
+        },
+        "StorageAccountName_03": {
+            "type": "string",
+            "defaultValue": "gcplsqlstorage"
+        },
+        "StorageAccountName_04": {
+            "type": "string",
+            "defaultvalue": "gcpldcstorage"
+        }
+      
+       },
+       
+       "variables": {  
+       //"StorageAccountName": "[concat(uniquestring(resourcegroup().id),'storage')]"
+       },
+
+
+   // Described Resources are used only to spin-up storage accounts.
+   "resources": [
+       {
+      "name": "[parameters('storageAccountName_01')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2015-06-15",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "accountType": "[parameters('storageAccountType_01')]"
+          }
+      },
+      {
+      "name": "[parameters('storageAccountName_02')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2015-06-15",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "accountType": "[parameters('storageAccountType_02')]"  
+                     }
+      },
+      {
+      "name": "[parameters('storageAccountName_03')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2015-06-15",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "accountType": "[parameters('storageAccountType_03')]"
+                    }  
+      },
+      {
+      "name": "[parameters('storageAccountName_04')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2015-06-15",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "accountType": "[parameters('storageAccountType_04')]"
+                    }  
+      }
+     
+
+    
+     ],
+   "outputs": {  }
+}

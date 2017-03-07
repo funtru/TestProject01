@@ -1,0 +1,22 @@
+// Following Script will spin up single storage account.
+
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  
+  
+  "parameters": {},
+  "resources": [
+      {
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2015-06-15",
+    "name": "[concat('storage01',uniquestring(resourcegroup().id))]",
+    "location": "[resourcegroup().location]",
+    "properties": 
+    {
+        "accountType": "Standard_LRS"
+    }
+}
+  ],
+  "outputs": {}
+}
