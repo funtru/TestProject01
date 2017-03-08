@@ -70,33 +70,29 @@
                         "properties": {
                             "addressPrefix": "[parameters('subnetAddressPrefix_01')]"
                         }
-                    }
-                ]      
-            }
-        },
-        {
-             
-            "apiVersion": "2016-03-30",
-            "type": "Microsoft.Network/virtualNetworks",
-            "name": "[parameters('name')]",
-            "location": "[parameters('location')]",
-            "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "[parameters('addressPrefix')]"
-                    ]
-                },
-                "subnets": [
+                    },
                     {
+                        
                         "name": "[parameters('subnetName_02')]",
                         "properties": {
                             "addressPrefix": "[parameters('subnetAddressPrefix_02')]"
                         }
+                    },
+                        {
+                        "name": "[parameters('subnetName_03')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('subnetAddressPrefix_03')]"
+                        }
+                    },
+                      {
+                        "name": "[parameters('subnetName_04')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('subnetAddressPrefix_04')]"
+                        }
                     }
+                    
                 ]      
             }
-        } 
-        
-        
+        }        
     ]
 }
