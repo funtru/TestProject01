@@ -6,7 +6,7 @@
     "parameters": {
         "name": {
             "type": "string",
-            "defaultValue": "TempVnet01"
+            "defaultValue": "dlVnet01"
         },
         "location": {
             "type": "string",
@@ -14,18 +14,47 @@
         },
         "addressPrefix": {
             "type": "string",
-            "defaultValue": "10.0.0.0/16"
+            "defaultValue": "172.16.0.0/16"
         },
-        "subnetName": {
+        "subnetName_01": {
             "type": "string",
             "defaultValue": "subnet-1"
+
         },
-        "subnetAddressPrefix": {
+        "subnetName_02": {
             "type": "string",
-            "defaultValue": "10.0.0.0/24"
+            "defaultValue": "subnet-2"
+
+        },
+        "subnetName_03": {
+            "type": "string",
+            "defaultValue": "subnet-3"
+        },
+        "subnetName_04": {
+            "type": "string",
+            "defaultValue": "subnet-4"
+        },
+        "subnetAddressPrefix_01": {
+            "type": "string",
+            "defaultValue": "172.16.1.0/24"
+        },
+        "subnetAddressPrefix_02": {
+            "type": "string",
+            "defaultValue": "172.16.2.0/24"
+        },
+        "subnetAddressPrefix_03": {
+            "type": "string",
+            "defaultValue": "172.16.3.0/24"
+        },
+        "subnetAddressPrefix_04": {
+            "type": "string",
+            "defaultValue": "172.16.4.0/24"
         }
     },
     "resources": [
+           
+           //Storage Account Submission update 
+
         {
             "apiVersion": "2016-03-30",
             "type": "Microsoft.Network/virtualNetworks",
@@ -37,15 +66,40 @@
                         "[parameters('addressPrefix')]"
                     ]
                 },
-                "subnets": [
+                "subnets_01": [
                     {
-                        "name": "[parameters('subnetName')]",
+                        "name": "[parameters('subnetName_01')]",
                         "properties": {
-                            "addressPrefix": "[parameters('subnetAddressPrefix')]"
+                            "addressPrefix": "[parameters('subnetAddressPrefix_01')]"
+                        }
+                    }
+                ],
+                  "subnets_02": [
+                    {
+                        "name": "[parameters('subnetName_02')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('subnetAddressPrefix_02')]"
+                        }
+                    }
+                ],
+                  "subnets_03": [
+                    {
+                        "name": "[parameters('subnetName_03')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('subnetAddressPrefix_03')]"
+                        }
+                    }
+                ],
+                  "subnets_04": [
+                    {
+                        "name": "[parameters('subnetName_04')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('subnetAddressPrefix_04')]"
                         }
                     }
                 ]
             }
-        }
+        } 
+        
     ]
 }
