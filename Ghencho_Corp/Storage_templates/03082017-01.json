@@ -6,7 +6,7 @@
     "parameters": {
         "name": {
             "type": "string",
-            "defaultValue": "ScriptStorage01"
+            "defaultValue": "dlscriptstorage01"
         },
         "accountType": {
             "type": "string",
