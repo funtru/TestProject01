@@ -1,4 +1,4 @@
-// Following Script will create single Vnet with single subnet
+// Following Script will create single Vnet with multiple Subnets.
 
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -6,7 +6,7 @@
     "parameters": {
         "name": {
             "type": "string",
-            "defaultValue": "dlVnet01"
+            "defaultValue": "GCPL-VNET01"
         },
         "location": {
             "type": "string",
